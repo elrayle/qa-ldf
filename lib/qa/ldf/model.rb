@@ -7,6 +7,28 @@ module Qa
     class Model
       include ActiveTriples::RDFSource
 
+      ##
+      # @return [Qa::LDF::Authority]
+      def authority
+        Qa::LDF::Authority.new
+      end
+
+      ##
+      # Fetches from the cache client.
+      #
+      # @see ActiveTriples::RDFSource#fetch
+      # def fetch
+      #   authority.find(to_uri)
+      #   self
+      # rescue => e
+      #   if block_given?
+      #     yield(self)
+      #     self
+      #   else
+      #     raise e
+      #   end
+      # end
+
       class << self
         ##
         # Builds a model from the graph.
